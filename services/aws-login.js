@@ -6,26 +6,28 @@ const jwkToPem = require('jwk-to-pem');
 const jwt = require('jsonwebtoken');
 global.fetch = require('node-fetch');
 
-const poolData = {    
-  UserPoolId : "us-west-2_xfao2bjyS", // Your user pool id here    
-  ClientId : "5nj3ae6in513dhph30hbj0dbjj" // Your client id here
-}; 
-const pool_region = 'us-east-2';
-
-async function authenticate(userPoolId, username, password) {
+async function authenticate(userPoolId, clientId, username, password) {
     // if (!context.data.password || !context.data.email) {
     //   throw new Error('Missing username or password');
     // }
 
+    const poolData = {    
+      UserPoolId : userPoolId, // Your user pool id here    
+      ClientId : clientId // Your client id here
+    }; 
+
+
+    const pool_region = userPoolId.split('_')[0];
+
     const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
     var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
-      Username: 'tkottke@witsmd.com',
-      Password: '12345Ab!',
+      Username: username,
+      Password: password,
     });
 
     var userData = {
-      Username: 'tkottke@witsmd.com',
+      Username: username,
       Pool: userPool
     };
     var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);

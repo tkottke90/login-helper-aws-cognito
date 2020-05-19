@@ -11,10 +11,15 @@ ipcRenderer.send('load config');
 // Electron Listeners
 ipcRenderer.on('load config', function (event, args) {
   const poolInput = document.querySelector('#pool');
-  console.dir(args);
 
   if (poolInput) {
     poolInput.value = args.lastPool;
+  }
+
+  const clientInput = document.querySelector('#client');
+
+  if (clientInput) {
+    clientInput.value = args.lastClient;
   }
 })
 

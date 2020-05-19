@@ -15,3 +15,11 @@ npm run build
 ```
 
 This will generate a new package.  You can then access the application by find the applicaiton called `aws-login`
+
+## AWS Cognito Configuration
+
+To use this tool with AWS you will need take the following steps:
+
+1. Create an AWS Cognito User Pool
+2. Create a App Client within that user pool
+2a. Ensure that your client does __not__ have a secret as secrets do not work with the Javsscript SDK

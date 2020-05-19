@@ -29,7 +29,9 @@ async function main() {
   await setup();
 
   function createWindow() {
-    const webPreferences = electron.app.isPackaged ? package.app['mode-configs'].production : package.app['mode-configs'].development
+    const webPreferences = electron.app.isPackaged ? package.app['mode-configs'].production.webPreferences : package.app['mode-configs'].development.webPreferences
+
+    console.dir(webPreferences);
 
     let window = new electron.BrowserWindow({
       width: 800,
@@ -38,7 +40,7 @@ async function main() {
     });
 
     window.loadFile(path.resolve(__dirname, 'public', 'index.html'));
-    // window.webContents.openDevTools();
+    window.webContents.openDevTools();
 
     electron.ipcMain.on('load config', (event, arg) => {
       event.reply('load config', config);
@@ -47,9 +49,10 @@ async function main() {
     electron.ipcMain.on('login', async (event, arg) => {
 
       try {
-        const result = await aws(arg.pool, arg.username, arg.password);
+        const result = await aws(arg.pool, arg.client, arg.username, arg.password);
 
         config.lastPool = arg.pool;
+        config.lastClient = arg.client;
         await writeFile(configLocation, JSON.stringify(config, null, 2), 'utf8');
 
         event.reply('login result', result);
