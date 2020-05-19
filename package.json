@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
+    "build": "electron-packager .",
     "release": "standard-version -r",
     "release-rc": "standard-version -p"
   },
@@ -22,5 +23,15 @@
   "devDependencies": {
     "electron-packager": "^14.2.1",
     "standard-version": "^8.0.0"
+  },
+  "app": {
+    "mode-configs": {
+      "development" : {
+        "webPreferences": { "nodeIntegration": true }
+      },
+      "production": {
+        "webPreferences": { "nodeIntegration": true, "devTools": false }
+      }
+    }
   }
 }

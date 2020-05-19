@@ -6,4 +6,6 @@ logs/
 
 .vscode/
 
+aws*
+
 package-lock.json

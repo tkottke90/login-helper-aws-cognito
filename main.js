@@ -29,16 +29,16 @@ async function main() {
   await setup();
 
   function createWindow() {
+    const webPreferences = electron.app.isPackaged ? package.app['mode-configs'].production : package.app['mode-configs'].development
+
     let window = new electron.BrowserWindow({
-      width: 1200,
+      width: 800,
       height: 800,
-      webPreferences: {
-        nodeIntegration: true
-      }
+      webPreferences
     });
 
     window.loadFile(path.resolve(__dirname, 'public', 'index.html'));
-    window.webContents.openDevTools();
+    // window.webContents.openDevTools();
 
     electron.ipcMain.on('load config', (event, arg) => {
       event.reply('load config', config);
