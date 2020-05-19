@@ -2,7 +2,7 @@
 
 This tool allows for users to login to an AWS Cognito User Pool and displays the access tokens returned, allowing me to use those tokens when developing using API tools like Insomnia or Postman
 
-![App Screenshot]()
+![App Screenshot](https://github.com/tkottke90/login-helper-aws-cognito/blob/master/docs/images/app-screenshot.png?raw=true)
 
 ## Installation
 
