@@ -1,10 +1,12 @@
 {
   "name": "aws-login",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Electron Application that allows users to login to an AWS User Pool and get access tokens back",
+  "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "release": "standard-version -r",
+    "release-rc": "standard-version -p"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +18,9 @@
     "jwk-to-pem": "^2.0.3",
     "node-fetch": "^2.6.0",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "electron-packager": "^14.2.1",
+    "standard-version": "^8.0.0"
   }
 }
