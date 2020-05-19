@@ -1,6 +1,6 @@
 {
   "name": "aws-login",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Electron Application that allows users to login to an AWS User Pool and get access tokens back",
   "main": "main.js",
   "scripts": {
