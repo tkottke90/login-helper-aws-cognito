@@ -50,3 +50,13 @@ jobs:
               asset_path: ./release.zip
               asset_name: release.zip
               asset_content_type: application/zip
+      
+        - name: Store Build
+          uses: actions/upload-release-asset@v1.0.1
+          env:
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          with:
+              upload_url: ${{steps.create_release.outputs.upload_url}}
+              asset_path: ./CHANGELOG.md
+              asset_name: CHANGELOG.md
+              asset_content_type: text/markdown
