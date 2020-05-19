@@ -1,0 +1,177 @@
+:root {
+  --mobileMedia: 600px;
+
+  --default-bezier: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --decelerate-bezier: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --accelerate-bezier: cubic-bezier(0.4, 0.0, 1, 1);
+
+  --elevation-1: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  --elevation-2: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+  --elevation-3: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+  --elevation-4: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+body,
+body[theme='light'] {
+  --theme-primary: #90a4ae;
+  --theme-accent: #558b2f;
+  --theme-warn: #fb8c00;
+  --theme-on-primary: #fff;
+  --theme-on-accent: #000;
+  --theme-on-warn: #000;
+  --foreground: #000;
+  --background: #ececec;
+
+  --svg-foreground: #000;
+}
+
+
+body[theme='dark'] {
+  --theme-primary: #617884;
+  --theme-accent: #447823;
+  --theme-warn: #f85c00;
+  --theme-on-primary: #FFF;
+  --theme-on-accent: #FFF;
+  --theme-on-warn: #fff;
+  --foreground: #E0E0E0;
+  --background: #263238;
+
+  --svg-foreground: #E0E0E0;
+}
+
+body {
+  background-color: var(--background);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+
+
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+*[hidden] {
+  display: none;
+  pointer-events: none;
+}
+
+*[text-ellipsis] {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+header {
+  width: 100%;
+  display: flex;
+
+  background-color: var(--theme-primary);
+  color: var(--theme-on-primary);
+
+  justify-content: center;
+
+  padding: 1rem
+}
+
+main {
+  height: calc(100% - 69px);
+  margin-top: 1rem;
+
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 0 auto;
+
+  font-size: 1.5rem;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+
+  margin: 0.5rem 0;
+
+  color: var(--foreground);
+}
+
+.field > label {
+  flex: 0 0 10rem;
+}
+
+.field > input {
+  height: 2rem;
+  font-size: 1.5rem;
+}
+
+.results {
+  width: 100%;
+  color: var(--foreground);
+}
+
+.token-container {
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.token-container > h3 {
+  margin-bottom: 0.25rem;
+}
+
+.token {
+  width: 100%;
+  min-height: 5rem;
+
+  box-shadow: inset 0 0 10px #000000;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+
+.copy-icon {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+
+  opacity: 0.5;
+
+  cursor: pointer;
+}
+
+.copy-icon:hover {
+  opacity: 1;
+}
+
+#overlay {
+  
+
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

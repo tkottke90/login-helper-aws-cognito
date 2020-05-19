@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="index.css" >
+</head>
+<body theme="dark">
+    <header>
+      <h1>AWS User Pool Authentication</h1>
+    </header>
+
+    <main>
+      <section class="login-form">
+        <form>
+          <div class="user-pool-field field">
+            <label for="pool">User Pool ID</label>
+            <input id="pool" name="pool" type="text">
+          </div>
+
+          <div class="user-name-field field">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+          </div>
+
+          <div class="user-password-field field">
+            <label for="password">User Pool ID</label>
+            <input id="password" name="password" type="password">
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+      </section>
+      
+      <section class="results">
+        <div class='token-container'>
+          <h3>Access Token</h3>
+          <svg class="copy-icon" data-field="access-token" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+          </svg>
+          <div class="token-wrapper">
+            <p class="token" id="access-token"></p>
+          </div>
+        </div>
+
+        <div class='token-container'>
+          <h3>ID Token</h3>
+          <svg class="copy-icon" data-field="id-token" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+          </svg>
+          <div class="token-wrapper">
+            <p class="token" id="id-token"></p>
+          </div>
+        </div>
+
+        <div class='token-container'>
+          <h3>Refresh Token</h3>
+          <svg class="copy-icon" data-field="refresh-token" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+          </svg>
+          <div class="token-wrapper">
+            <p class="token" id="refresh-token"></p>
+            
+          </div>
+        </div>
+      </section>
+
+      <div id="overlay">
+
+      </div>
+
+
+    <script defer src="index.js"></script>
+</body>
+</html>
